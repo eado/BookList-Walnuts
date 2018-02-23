@@ -9,12 +9,28 @@
 					for (i=1; i < values.length; i++) {
 						var book = values[i];
 						var newdiv = document.createElement("div");
-						newdiv.innerHTML = '<p>Book Title: '+ book[0] + '</p> <p>Walnut: ' + book[1] + '</p> <p>Comment: ' + book[2] + '</p> <p>Author: ' + book[3] + '</p> <p>Description: ' + book[4] + '</p> <p>Genre: ' + book[5] + '</p> <hr>'
+						newdiv.classList.add('book');
+						newdiv.innerHTML = '<h1>' + book[0] + 
+								   '</h1> <p>Walnut: ' + book[1] + 
+								   '</p> <p>Comment: ' + book[2] + 
+								   '</p> <p>Author: ' + book[3] + 
+								   '</p> <p>Description: ' + book[4] + 
+								   '</p> <p>Genre: ' + book[5] + '</p> <hr>'
 
 						document.body.appendChild(newdiv);
 					}
 				}
 			);
 		</script>
+		<style>
+			* {
+				font-family: Helvetica;
+			}
+			.book {
+				display: inline-block;
+				width: 33%;
+				padding: 20px;
+			}
+		</style>
 	</head>
 </html>
