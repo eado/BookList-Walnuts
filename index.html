@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+			$.getJSON('https://sheets.googleapis.com/v4/spreadsheets/1SX_T2RpBbNN1LgalLx_8yzkGiiXCZNT0Ayj57fKLthU/values/Master%20List%20by%20Author?key=AIzaSyDezqOKn96aGEeBEx_x9MrkxliPoPs1A6I', 
+    			function(data) {
+					var values = data.values;
+					for (i=1; i < values.length; i++) {
+						var book = values[i];
+						var newdiv = document.createElement("div");
+						newdiv.innerHTML = '<p>Book Title: '+ book[0] + '</p> <p>Walnut: ' + book[1] + '</p> <p>Comment: ' + book[2] + '</p> <p>Author: ' + book[3] + '</p> <p>Description: ' + book[4] + '</p> <p>Genre: ' + book[5] + '</p> <hr>'
+
+						document.body.appendChild(newdiv);
+					}
+				}
+			);
+		</script>
+	</head>
+</html>
