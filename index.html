@@ -10,6 +10,7 @@
 					for (i=1; i < values.length; i++) {
 						var book = values[i];
 						var newdiv = document.createElement("div");
+						newdiv.id = book[0]
 						newdiv.classList.add('book');
 						newdiv.innerHTML = '<h1>' + book[0] + 
 								   '</h1> <p><b>Walnut:</b> ' + book[1] + 
@@ -17,6 +18,17 @@
 								   '</p> <p><b>Author:</b> ' + book[3] + 
 								   '</p> <p><b>Description:</b> ' + book[4] + 
 								   '</p> <p><b>Genre:</b> ' + book[5] + '</p> <hr>'
+						
+						$.getJSON('https://www.googleapis.com/books/v1/volumes?q=' + book[0] + '&key=AIzaSyDezqOKn96aGEeBEx_x9MrkxliPoPs1A6I',
+							function(data) {
+								console.log('hello');
+								var newdiv = document.getElementById(book[0])
+								var imgURL = data.items[0].volumeInfo.imageLinks.thumbnail;
+								var img = document.createElement('img');
+								img.src = imgURL;
+								newdiv.appendChild(img);
+							}
+						)
 
 						document.body.appendChild(newdiv);
 					}
